@@ -21,8 +21,9 @@ const router = express.Router();
 
 router.post("/:username", ensureCorrectUser, async function (req, res, next) {
   const {viewedUser, didLike} = req.body;
+  console.log("-------interacting username is", viewedUser.username);
   const currUser = req.params.username;
-  const interaction = await User.userInteraction(currUser, viewedUser, didLike);
+  const interaction = await User.userInteraction(currUser, viewedUser.username, didLike);
 
   return res.json({ interaction })
 })

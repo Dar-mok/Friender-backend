@@ -62,9 +62,10 @@ function ensureLoggedIn(req, res, next) {
 
 function ensureCorrectUser(req, res, next) {
   const username = res.locals.user?.username;
-  console.log("res.locals", res.locals);
+  console.log("res.locals ===", res.locals);
   console.log("req.params", req.params);
   if (username && (username === req.params.username)) {
+    console.log("checking the if inside auth route ensureCorrectUser");
     return next();
   }
 

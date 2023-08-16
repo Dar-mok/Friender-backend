@@ -135,6 +135,7 @@ class User {
   /** Find all users that haven't been viewed already.
    *
    * Returns [{ username, first_name, last_name, email, hobbies, zipCode, radius}, ...]
+   * NOTE: the username passed in as an arg is the current app users username
    **/
 
           //pass in username!!
@@ -205,7 +206,7 @@ class User {
     if (!allMatches) allMatches = {matches: "none tesing"}
     return allMatches;
   }
-  
+
   static async userInteraction(currUser, viewedUser, didLike) {
     const newInteraction = await db.query(`
     INSERT INTO interactions
