@@ -15,9 +15,7 @@ const morgan = require("morgan");
 
 const app = express();
 
-app.use(cors({
-  origin: 'https://friender-frontend-6106516b52e7.herokuapp.com/'
-}));
+app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
